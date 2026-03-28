@@ -12,6 +12,6 @@ jobs:
      - name: job1
        env: 
           class: "seventh"
-       run: echo "$name studying $class standard in $school"
+       run: echo "$name studying $class standard in $school ${{ vars.projectname }}"
 
        
