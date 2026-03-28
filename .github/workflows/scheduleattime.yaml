@@ -1,0 +1,12 @@
+name: Scheduled Workflow
+
+on:
+  schedule:
+    - cron: '55 5 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Runs at 11:25 IST"
