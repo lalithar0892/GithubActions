@@ -6,7 +6,7 @@ on:
         description : "First number"
         default: "0"
         required: true
-      number1:
+      number2:
         description : "First number"
         default: "0"
         required: true
