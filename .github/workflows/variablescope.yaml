@@ -1,0 +1,17 @@
+name : Variables
+on:
+  workflow_dispatch:
+env:
+  name: "JOhn"
+jobs:
+  test:
+    env:
+      school: "Minerva"
+    runs-on: ubuntu-latest
+    steps:
+     - name: job1
+       env: 
+          class: "seventh"
+       run: echo "$name studying $class standard in $school"
+
+       
