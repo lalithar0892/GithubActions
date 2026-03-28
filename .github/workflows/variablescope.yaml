@@ -31,6 +31,6 @@ jobs:
         echo "Name: ${{ env.NAME }}"
      - name: sum of numbers
        id: sum
-       run: echo "sum = $((${{ inputs.number1 }} + ${{ inputs.number2 }}))" >> $GITHUB_OUTPUT
+       run: echo "sum=$((${{ inputs.number1 }} + ${{ inputs.number2 }}))" >> $GITHUB_OUTPUT
      - name: Display sum
        run: echo "The sum is ${{ steps.sum.outputs.sum }}" 
