@@ -1,8 +1,9 @@
 name: run at cron schedule
 
 on:
+  push:
   schedule:
-    - cron: '55 5 * * *'
+    - cron: '8 6 * * *'
 
 jobs:
   test:
