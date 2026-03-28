@@ -1,0 +1,11 @@
+name: Sample Workflow
+on: 
+  schedule:
+    - cron: '*/2 * * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Hello World"
