@@ -29,6 +29,7 @@ jobs:
         echo "Branch: ${{ github.ref }}"
         echo "OS: ${{ runner.os }}"
         echo "Name: ${{ env.NAME }}"
+        echo "Secret: ${{ secrets.key1 }}"
      - name: sum of numbers
        id: sum
        run: echo "sum=$((${{ inputs.number1 }} + ${{ inputs.number2 }}))" >> $GITHUB_OUTPUT
