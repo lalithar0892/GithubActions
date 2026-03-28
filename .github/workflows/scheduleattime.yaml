@@ -1,7 +1,7 @@
 name: run at cron schedule
 
 on:
-  push:
+  # push:
   schedule:
     - cron: '8 6 * * *'
 
