@@ -12,6 +12,14 @@ jobs:
      - name: job1
        env: 
           class: "seventh"
-       run: echo "$name studying $class standard in $school ${{ vars.projectname }}"
+       run: |  
+        echo "$name studying $class standard in $school ${{ vars.projectname }}"
+        echo "Actor: ${{ github.actor }}"
+        echo "Repo: ${{ github.repository }}"
+        echo "Event: ${{ github.event_name }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "OS: ${{ runner.os }}"
+        echo "Name: ${{ env.NAME }}"
+
 
        
