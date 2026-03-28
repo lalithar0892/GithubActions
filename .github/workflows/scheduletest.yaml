@@ -1,4 +1,4 @@
-name: Sample Workflow
+name: Scheduled Workflow
 on: 
   schedule:
     - cron: '*/2 * * * *'
