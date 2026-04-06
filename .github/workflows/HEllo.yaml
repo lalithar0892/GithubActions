@@ -1,0 +1,24 @@
+name: Run first Python Script
+
+on: 
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter name"
+        required: true
+
+jobs:
+  run-python:   # ✅ Job name added
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run Python File
+        run: python Scripts/hello.py   # ✅ fixed path + added python
