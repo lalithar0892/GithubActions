@@ -1,0 +1,42 @@
+name: Artifact
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter name"
+jobs:
+  upload_artifact:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checout Code
+      uses: actions/checkout@v3
+    - name: Install python
+      uses: actions/setup-python@v4
+      with:
+          python-version: '3.10'
+    - name: run_Script
+      run: python Scripts/artifact.py
+    - name: upload_artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: upload_artifact
+        path: file1.txt
+
+  Download_artifact:
+    runs-on: ubuntu-latest
+    needs: upload_artifact
+    steps:
+    - name: checout Code
+      uses: actions/checkout@v3
+
+    - name: Download_artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: upload_artifact
+    - name: Show File
+      run: cat upload_artifact/file1.txt
+    
+
+
+
