@@ -1,5 +1,5 @@
 import sys
-num = int(sys.args[1])
+num = int(sys.argv[1])
 
 a=[]
 j=0
