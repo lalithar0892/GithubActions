@@ -1,5 +1,5 @@
 import requests
-import os
+import sys
 
 method = sys.argv[1]
 
