@@ -2,6 +2,17 @@ name: Test APIs
 
 on:
   workflow_dispatch:
+    inputs:
+      method:
+        description: "Select HTTP Request"
+        default: "GET"
+        type: choice
+        options:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
 
 jobs:
   job1:
@@ -20,4 +31,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Script
-        run: python Scripts/apitest.py
+        run: python Scripts/apitest.py ${{ inputs.method }}
