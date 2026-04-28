@@ -1,0 +1,37 @@
+name : Variables
+on:
+  workflow_dispatch:
+    inputs:
+      number1:
+        description : "First number"
+        default: "0"
+        required: true
+      number2:
+        description : "First number"
+        default: "0"
+        required: true
+env:
+  name: "JOhn"
+jobs:
+  test:
+    env:
+      school: "Minerva"
+    runs-on: ubuntu-latest
+    steps:
+     - name: job1
+       env: 
+          class: "seventh"
+       run: |  
+        echo "$name studying $class standard in $school ${{ vars.projectname }}"
+        echo "Actor: ${{ github.actor }}"
+        echo "Repo: ${{ github.repository }}"
+        echo "Event: ${{ github.event_name }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "OS: ${{ runner.os }}"
+        echo "Name: ${{ env.NAME }}"
+        echo "Secret: ${{ secrets.key1 }}"
+     - name: sum of numbers
+       id: sum
+       run: echo "sum=$((${{ inputs.number1 }} + ${{ inputs.number2 }}))" >> $GITHUB_OUTPUT
+     - name: Display sum
+       run: echo "The sum is ${{ steps.sum.outputs.sum }}" 

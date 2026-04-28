@@ -1,0 +1,13 @@
+name: run at cron schedule
+
+on:
+  # push:
+  schedule:
+    - cron: '8 6 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Runs at 11:25 IST"

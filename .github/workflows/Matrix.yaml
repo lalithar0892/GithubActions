@@ -1,0 +1,22 @@
+name: Matrix Strategy
+on:
+  workflow_dispatch:
+jobs:
+  run-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        number: [5,7,10]
+    steps:
+    - name: print Input Numbers
+      run: echo "Generating Fibonacci for ${{ matrix.number }}"
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+    - name: Setup-python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: run script
+      run: |
+        echo "Running for n = ${{ matrix.number }}"
+        python Scripts/fibonacci.py ${{ matrix.number }}
