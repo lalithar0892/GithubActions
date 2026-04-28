@@ -2,4 +2,5 @@ with open('profit.txt', 'r') as file:
     # read first 3 lines
     for i in range(3):
         print(file.readline().strip())
-        print("This is testing")
+        print("This is testing diff")
+        print("NOw another change")
