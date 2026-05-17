@@ -1,0 +1,19 @@
+name: Practice Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter Name"
+jobs:
+  job1:
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v4
+    - name: Install python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: run Scripts
+      run : python Scripts/practice.py ${{ inputs.name }}
+
+
