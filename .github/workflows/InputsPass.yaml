@@ -6,6 +6,7 @@ on:
         description: "Enter Name"
 jobs:
   job1:
+    runs-on: ubuntu-latest
     steps:
     - name: checkout repo
       uses: actions/checkout@v4
