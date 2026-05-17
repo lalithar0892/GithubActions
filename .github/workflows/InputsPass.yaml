@@ -1,13 +1,11 @@
 name: Pass inputs
 on: push
 env: 
-  a: 10
-  b: 20
+  y: 10
 jobs:
   run_Script:
     env:
-      a: 30
-      b: 40
+      y: 30
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Codew
@@ -21,7 +19,7 @@ jobs:
           a: 5
           b: 30
         run: |
-          echo "Worflow level a=$workflow_a"
-          echo "Job level a=$job_a"
-          echo "Step level a=$step_a"
+          echo "Worflow level z=$z"
+          echo "Job level y=$y"
+          echo "Step level a=$a"
           python Scripts/practice.py ${{ env.b }} $a
