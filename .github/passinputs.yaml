@@ -1,19 +1,18 @@
 name: Pass inputs
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "Enter name"
-        required: true
+  schedule:
+      - cron: '40 5 * * *'
+      - cron: '45 5 * * *' 
 jobs:
   run_Script:
-   runs-on: ubuntu-latest
-   steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: run script
-      run: python Scripts/passinputs.py "${{ inputs.name }}"
+    if: github.event.schedule == '40 5 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codew
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: run script
+        run: python Scripts/passinputs.py "${{ inputs.name }}"
