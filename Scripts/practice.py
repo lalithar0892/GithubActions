@@ -1,3 +1,4 @@
 import sys
-name = sys.argv[1]
-print(f"Given name is {name}")
+
+print("First argument:", sys.argv[1])
+print("Second argument:", sys.argv[2])
