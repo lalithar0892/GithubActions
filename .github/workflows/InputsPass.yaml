@@ -1,20 +1,18 @@
-name: Practice Workflow
+name: Pass inputs
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "Enter Name"
+  schedule:
+      - cron: '40 5 * * *'
+      - cron: '45 5 * * *' 
 jobs:
-  job1:
+  run_Script:
+    if: github.event.schedule == '45 5 * * *'
     runs-on: ubuntu-latest
     steps:
-    - name: checkout repo
-      uses: actions/checkout@v4
-    - name: Install python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: run Scripts
-      run : python Scripts/practice.py ${{ inputs.name }}
-
-
+      - name: Checkout Codew
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: run script
+        run: python Scripts/passinputs.py "${{ inputs.name }}"

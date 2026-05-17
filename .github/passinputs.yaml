@@ -5,7 +5,7 @@ on:
       - cron: '45 5 * * *' 
 jobs:
   run_Script:
-    if: github.event.schedule == '40 5 * * *'
+    if: github.event.schedule == '45 5 * * *'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Codew
