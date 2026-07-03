@@ -1,16 +1,24 @@
 name: GITHUB-OUTPUTS
+
 on:
-  push
+  push:
+
 jobs:
   giveoutput:
     runs-on: ubuntu-latest
+
     outputs:
-      env : ${{ steps.gstep.outputs.version }}
+      env: ${{ steps.gstep.outputs.version }}
+
     steps:
       - id: gstep
-        run : echo "version=v1.0.0" >> $GITHUB_OUTPUT
+        run: |
+          echo "version=v1.0.0" >> $GITHUB_OUTPUT
+
   takeoutput:
     needs: giveoutput
     runs-on: ubuntu-latest
+
     steps:
-      - run : echo "Version is ${{ needs.giveoutput.outputs.env }}
+      - run: |
+          echo "Version is ${{ needs.giveoutput.outputs.env }}"
